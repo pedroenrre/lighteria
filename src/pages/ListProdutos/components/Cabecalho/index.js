@@ -1,12 +1,26 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
-import ListProdutos from './pages/ListProdutos';
+import { View, Text, StyleSheet, Image } from 'react-native';
+// import IconeSacola from '../../../../assets/'
 
-const App = () => {
+const Cabecalho = () => {
   return (
-    <SafeAreaView style={styles.background}>
-      <ListProdutos />
-    </SafeAreaView>
+    <>
+      <View style={styles.containerTitulo}>
+        <Text style={styles.titulo}>LIGHTERIA</Text>
+        <View style={styles.containerSacola}>
+          <Image
+            source={require('../../../../assets/images/icone-sacola.png')}
+            style={styles.image}
+          />
+        </View>
+      </View>
+      <View>
+        <View style={styles.separador} />
+        <View style={styles.containerCategoria}>
+          <Text style={styles.categoriaTexto}>Categorias</Text>
+        </View>
+      </View>
+    </>
   );
 };
 
@@ -53,4 +67,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Cabecalho;
