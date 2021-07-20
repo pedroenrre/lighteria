@@ -1,12 +1,22 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import ListProdutos from './pages/ListProdutos';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.background}>
-      <ListProdutos />
-    </SafeAreaView>
+    <NavigationContainer>
+      <SafeAreaView style={styles.background}>
+        <Stack.Navigator
+          initialRouteName="ListProdutos"
+          screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="ListProdutos" component={ListProdutos} />
+        </Stack.Navigator>
+      </SafeAreaView>
+    </NavigationContainer>
   );
 };
 
