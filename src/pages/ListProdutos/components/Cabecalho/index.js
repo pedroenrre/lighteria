@@ -1,12 +1,18 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-// import IconeSacola from '../../../../assets/'
+import {
+  COR_DE_FUNDO,
+  FONT_FAMILY_EXTRA_BOLD,
+  FONT_FAMILY_REGULAR,
+  FONT_SIZE_MEDIUM,
+  FONT_SIZE_XX_LARGE,
+} from '../../../../styles/styles';
 
 const Cabecalho = () => {
   return (
     <>
       <View style={styles.containerTitulo}>
-        <Text style={styles.titulo}>LIGHTERIA</Text>
+        <Text style={styles.titulo}>Lighteria</Text>
         <View style={styles.containerSacola}>
           <Image
             source={require('../../../../assets/images/icone-sacola.png')}
@@ -27,7 +33,7 @@ const Cabecalho = () => {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    backgroundColor: '#f4f0f4',
+    backgroundColor: COR_DE_FUNDO,
     paddingHorizontal: 24,
   },
   containerTitulo: {
@@ -37,8 +43,8 @@ const styles = StyleSheet.create({
     paddingVertical: 24,
   },
   titulo: {
-    fontFamily: 'OpenSans-ExtraBold',
-    fontSize: 28,
+    fontFamily: FONT_FAMILY_EXTRA_BOLD,
+    fontSize: FONT_SIZE_XX_LARGE,
   },
   containerSacola: {
     backgroundColor: '#fff',
@@ -59,11 +65,11 @@ const styles = StyleSheet.create({
     marginTop: -37,
   },
   categoriaTexto: {
-    backgroundColor: '#f4f0f4',
+    backgroundColor: COR_DE_FUNDO,
     padding: 24,
     color: '#a1a5aa',
-    fontSize: 16,
-    fontFamily: 'OpenSans-Regular',
+    fontSize: FONT_SIZE_MEDIUM,
+    fontFamily: FONT_FAMILY_REGULAR,
   },
 });
 
