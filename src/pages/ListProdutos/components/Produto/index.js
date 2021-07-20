@@ -1,19 +1,41 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, Image, StyleSheet } from 'react-native';
 import {
   FONT_FAMILY_SEMI_BOLD,
   FONT_SIZE_SMALL,
 } from '../../../../styles/styles';
+import { useNavigation } from '@react-navigation/native';
 
 // import { Container } from './styles';
 
-const Produto = ({ imagem, titulo, index }) => {
+const Produto = ({
+  id,
+  imagem,
+  titulo,
+  estudio,
+  itemName,
+  itemDesc,
+  preco,
+  index,
+}) => {
+  const navigation = useNavigation();
   return (
-    <View
+    <TouchableOpacity
+      onPress={() =>
+        navigation.navigate('DetalhesProduto', {
+          id,
+          imagem,
+          titulo,
+          estudio,
+          itemName,
+          itemDesc,
+          preco,
+        })
+      }
       style={[styles.containerProduto, index % 2 === 0 && { marginRight: 16 }]}>
       <Image source={imagem} resizeMode="contain" style={styles.imagem} />
       <Text style={styles.titulo}>{titulo}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

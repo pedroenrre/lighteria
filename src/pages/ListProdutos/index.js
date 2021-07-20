@@ -8,6 +8,7 @@ import { DATA } from '../../utils/data';
 const ListProdutos = () => {
   return (
     <FlatList
+      style={{ paddingHorizontal: 24 }}
       numColumns={2}
       data={DATA}
       renderItem={({ item, index }) => <Produto {...item} index={index} />}

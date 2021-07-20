@@ -1,6 +1,7 @@
 import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import ListProdutos from './pages/ListProdutos';
+import DetalhesProduto from './pages/DetalhesProduto';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -14,6 +15,7 @@ const App = () => {
           initialRouteName="ListProdutos"
           screenOptions={{ headerShown: false }}>
           <Stack.Screen name="ListProdutos" component={ListProdutos} />
+          <Stack.Screen name="DetalhesProduto" component={DetalhesProduto} />
         </Stack.Navigator>
       </SafeAreaView>
     </NavigationContainer>
@@ -24,7 +26,6 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     backgroundColor: '#f4f0f4',
-    paddingHorizontal: 24,
   },
   containerTitulo: {
     flexDirection: 'row',
