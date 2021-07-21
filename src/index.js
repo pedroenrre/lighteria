@@ -1,25 +1,29 @@
 import React from 'react';
-import { View, SafeAreaView, Text, StyleSheet, Image } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
+import ListProdutos from './pages/ListProdutos';
+import DetalhesProduto from './pages/DetalhesProduto';
+import { Checkout } from './pages/Checkout';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Provider } from './provider';
+
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <SafeAreaView style={styles.background}>
-      <View style={styles.containerTitulo}>
-        <Text style={styles.titulo}>LIGHTERIA</Text>
-        <View style={styles.containerSacola}>
-          <Image
-            source={require('./assets/images/icone-sacola.png')}
-            style={styles.image}
-          />
-        </View>
-      </View>
-      <View>
-        <View style={styles.separador} />
-        <View style={styles.containerCategoria}>
-          <Text style={styles.categoriaTexto}>Categorias</Text>
-        </View>
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Provider>
+        <SafeAreaView style={styles.background}>
+          <Stack.Navigator
+            initialRouteName="ListProdutos"
+            screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="ListProdutos" component={ListProdutos} />
+            <Stack.Screen name="DetalhesProduto" component={DetalhesProduto} />
+            <Stack.Screen name="Checkout" component={Checkout} />
+          </Stack.Navigator>
+        </SafeAreaView>
+      </Provider>
+    </NavigationContainer>
   );
 };
 
@@ -27,7 +31,6 @@ const styles = StyleSheet.create({
   background: {
     flex: 1,
     backgroundColor: '#f4f0f4',
-    paddingHorizontal: 24,
   },
   containerTitulo: {
     flexDirection: 'row',
