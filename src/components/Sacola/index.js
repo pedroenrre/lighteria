@@ -1,14 +1,17 @@
 import React, { useContext } from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { DataContext } from '../../provider';
 import { WHITE } from '../../styles/styles';
-
+import { useNavigation } from '@react-navigation/native';
 // import { Container } from './styles';
 
 const Sacola = () => {
+  const navigation = useNavigation();
   const { itensCheckout } = useContext(DataContext);
   return (
-    <View style={styles.containerSacola}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('Checkout')}
+      style={styles.containerSacola}>
       <Image
         source={require('../../assets/images/icone-sacola.png')}
         style={styles.image}
@@ -23,7 +26,7 @@ const Sacola = () => {
           </Text>
         </View>
       ) : null}
-    </View>
+    </TouchableOpacity>
   );
 };
 

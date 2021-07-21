@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
   texto: {
+    textAlign: 'center',
     fontFamily: FONT_FAMILY_SEMI_BOLD,
     fontSize: FONT_SIZE_MEDIUM,
     color: WHITE,
