@@ -2,22 +2,27 @@ import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import ListProdutos from './pages/ListProdutos';
 import DetalhesProduto from './pages/DetalhesProduto';
+import Checkout from './pages/Checkout';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Provider } from './provider';
 
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <SafeAreaView style={styles.background}>
-        <Stack.Navigator
-          initialRouteName="ListProdutos"
-          screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="ListProdutos" component={ListProdutos} />
-          <Stack.Screen name="DetalhesProduto" component={DetalhesProduto} />
-        </Stack.Navigator>
-      </SafeAreaView>
+      <Provider>
+        <SafeAreaView style={styles.background}>
+          <Stack.Navigator
+            initialRouteName="ListProdutos"
+            screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="ListProdutos" component={ListProdutos} />
+            <Stack.Screen name="DetalhesProduto" component={DetalhesProduto} />
+            <Stack.Screen name="Checkout" component={Checkout} />
+          </Stack.Navigator>
+        </SafeAreaView>
+      </Provider>
     </NavigationContainer>
   );
 };

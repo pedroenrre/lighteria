@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import {
   FONT_FAMILY_BOLD,
@@ -14,6 +14,7 @@ import {
 import Botao from '../../../../components/Botao';
 
 import { formataValor } from '../../../../utils/utils';
+import { DataContext } from '../../../../provider';
 
 const DescricaoItem = ({
   id,
@@ -24,6 +25,8 @@ const DescricaoItem = ({
   itemDesc,
   preco,
 }) => {
+  const { adicionar } = useContext(DataContext);
+
   return (
     <View style={styles.container}>
       <View style={styles.itemPosicao}>
@@ -39,7 +42,20 @@ const DescricaoItem = ({
           <Text style={styles.textoDescricao}>{itemDesc}</Text>
           <View style={styles.rodape}>
             <Text style={styles.moeda}>{formataValor(preco)}</Text>
-            <Botao titulo="COMPRAR" onPress={() => {}} />
+            <Botao
+              titulo="COMPRAR"
+              onPress={() => {
+                adicionar({
+                  id,
+                  imagem,
+                  titulo,
+                  estudio,
+                  itemName,
+                  itemDesc,
+                  preco,
+                });
+              }}
+            />
           </View>
         </View>
       </View>
